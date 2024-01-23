@@ -53,8 +53,8 @@ ADMIN_EMAIL="odoo@example.com"
 
 # Check if the operating system is Ubuntu 22.04
 if [[ $(lsb_release -r -s) == "22.04" ]]; then
-    WKHTMLTOX_X64="https://packages.ubuntu.com/jammy/wkhtmltopdf"
-    WKHTMLTOX_X32="https://packages.ubuntu.com/jammy/wkhtmltopdf"
+    WKHTMLTOX_X64="https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-2/wkhtmltox_0.12.6.1-2.jammy_amd64.deb"
+    WKHTMLTOX_X32="https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-2/wkhtmltox_0.12.6.1-2.jammy_amd64.deb"
     #No Same link works for both 64 and 32-bit on Ubuntu 22.04
 else
     # For older versions of Ubuntu
@@ -123,7 +123,7 @@ if [ $INSTALL_WKHTMLTOPDF = "True" ]; then
 
   if [[ $(lsb_release -r -s) == "22.04" ]]; then
     # Ubuntu 22.04 LTS
-    sudo apt install wkhtmltopdf -y
+    sudo apt install ./wkhtmltox_0.12.6.1-2.jammy_amd64.deb
   else
       # For older versions of Ubuntu
     sudo gdebi --n `basename $_url`
